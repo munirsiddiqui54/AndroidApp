@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:layout_gravity="end"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    tools:context=".Register">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/head"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Adopt a furry friend today!"
+        android:textSize="40sp"
+        android:transitionName="text"
+        android:fontFamily="@font/aclonica"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/layout"
+        android:layout_marginBottom="10dp"
+        android:transitionName="box"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:layout_marginBottom="10dp"
+            android:hint="Email"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Rusername"
+            android:layout_marginBottom="10dp"
+            android:hint="Username"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:id="@+id/Rpassword_toggle"
+            app:passwordToggleEnabled="true"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerbtn"
+            android:text="REGISTER"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:cornerRadius="5dp"/>
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/login"
+    android:text="Already have an account ? LOGIN"
+    android:textSize="15sp"
+    android:background="#00000000"
+    android:textColor="@color/black"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="200dp"
+        android:id="@+id/kitten"
+        android:layout_gravity="end"
+        android:layout_height="200dp"
+        android:transitionName="kitten"
+        android:background="@drawable/cat" />
+
+
+</LinearLayout>
