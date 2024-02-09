@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1048182247062",
+    "project_id": "petcompass-b0db5",
+    "storage_bucket": "petcompass-b0db5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048182247062:android:645d745acbd4f57f21fcb7",
+        "android_client_info": {
+          "package_name": "com.example.pet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw_IYFOPI2zeq5A-upsl0uVfoHD9OpeYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

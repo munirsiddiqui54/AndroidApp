@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Pet" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/primary</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:statusBarColor">@color/pink</item>
         <item name="android:navigationBarColor">@color/pink</item>
@@ -10,5 +10,20 @@
 
 
     <style name="Theme.Pet" parent="Base.Theme.Pet" />
+
+    <style name="Theme.Pet.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="Theme.Pet.AppWidgetContainer" parent="Theme.Pet.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">16dp</item>
+    </style>
 
 </resources>

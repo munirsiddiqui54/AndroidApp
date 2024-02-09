@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -33,15 +34,33 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    //firebase dependencies
+    implementation("com.google.firebase:firebase-core:17.2.3")
+    implementation("com.google.firebase:firebase-auth:19.2.0")
+    implementation ("com.google.firebase:firebase-storage-ktx:19.1.1")
+    implementation ("com.google.firebase:firebase-database-ktx:19.2.1")
+    implementation ("com.google.firebase:firebase-messaging:20.1.2")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
+    implementation("com.google.firebase:firebase-analytics")
+
+    // Material Design
+    implementation("com.google.android.material:material:1.3.0-alpha03")
+
+    //To render Image Url
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
-    // Material Design
-    implementation("com.google.android.material:material:1.3.0-alpha03")
+
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.material:material:1.11.0")
     testImplementation("junit:junit:4.13.2")

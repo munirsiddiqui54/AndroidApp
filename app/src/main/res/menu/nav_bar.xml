@@ -5,9 +5,9 @@
     android:title="Home"
     android:icon="@drawable/home"/>
     <item
-        android:id="@+id/like"
-        android:title="Likes"
-        android:icon="@drawable/like"/>
+        android:id="@+id/messages"
+        android:title="Messages"
+        android:icon="@drawable/message"/>
 
     <item
         android:id="@+id/placeholder"

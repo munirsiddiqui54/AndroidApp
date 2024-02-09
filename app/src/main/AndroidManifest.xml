@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pet"
         tools:targetApi="31">
+
+
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false" />

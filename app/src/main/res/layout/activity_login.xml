@@ -45,12 +45,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/username"
             android:layout_marginBottom="10dp"
-            android:hint="Username"
+            android:hint="Email"
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/lemail"
                />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -66,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:id="@+id/lpassword"
 
               />
         </com.google.android.material.textfield.TextInputLayout>
