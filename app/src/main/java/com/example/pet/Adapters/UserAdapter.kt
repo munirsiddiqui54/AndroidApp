@@ -42,7 +42,6 @@ class UserAdapter(mContext:Context,mUsers:List<User>,isChatChecked:Boolean)
         holder.id=user!!.getUid()
         holder.profile=user!!.getProfile()
         Picasso.get().load(user.getProfile()).placeholder(R.drawable.myprofile).into(holder.userProfile)
-
     }
         class ViewHolder(itemView:View,context: Context):RecyclerView.ViewHolder(itemView){
 
@@ -62,7 +61,6 @@ class UserAdapter(mContext:Context,mUsers:List<User>,isChatChecked:Boolean)
                     intent.putExtra("friendId",id.toString())
                     intent.putExtra("friendProfile",profile.toString())
                     context.startActivity(intent)
-
                 }
             }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,15 +8,15 @@
     tools:context=".ChatActivity">
 
     <LinearLayout
+        android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#C8315C"
         android:paddingEnd="8dp"
         android:paddingStart="3dp"
       android:paddingVertical="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_alignParentTop="true"
+        >
 
         <androidx.cardview.widget.CardView
             android:layout_width="50dp"
@@ -49,17 +49,28 @@
     </LinearLayout>
 
 
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/chats"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/banner"
+           />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
 
+        >
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/typeText"
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
             android:layout_width="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:hint="Type a Message"
-            android:padding="8sp">
+            android:padding="8sp"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/message"
@@ -67,15 +78,19 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/send"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:src="@drawable/send"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <ImageView
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/send"
+           android:layout_alignRight="@+id/typeText"
+            />
+    </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

@@ -72,7 +72,6 @@ class MessagesFragment : Fragment() {
                  for(s in snapshot.children){
                      val user:User?=s.getValue(User::class.java)
                      if(!(user!!.getUid().equals(firebaseUserID))){
-
                          (mUsers as ArrayList<User>).add(user)
                      }
                  }
