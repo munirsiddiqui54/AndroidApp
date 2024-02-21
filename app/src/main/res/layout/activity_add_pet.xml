@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context=".AddPet">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Post Request" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="80dp"
+        android:layout_margin="15dp">
+
+        <ImageView
+            android:id="@+id/pet_image"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/img_1"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pet's Name: "
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/pet_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Enter Name"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How old is your Pet ? "
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/pet_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Enter Age"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pet's Gender"
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="Female" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pet's Color"
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/pet_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Enter Color"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What Category your pet belongs to ?"
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/pet_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Enter Category"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pet's Breed"
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/pet_breed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Enter Pet's Breed"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Write about Pet's Medical History"
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/pet_medical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:hint="How is your Pet ?"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mention reason for relinquishment"
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/pet_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Write a Genuinue Reason"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pet's Description or Message if any"
+            android:layout_margin="5dp"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/pet_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Tell us something about your pet"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addMyPet"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/bg_edit_text"
+            android:text="Post"
+            android:layout_marginBottom="50dp"
+            app:cornerRadius="5dp"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -6,13 +6,21 @@ class Chat (
     private var message: String = "",
     private var isSeen: Boolean = false,
     private var url: String = "",
-    private var msgId: String = ""
+    private var msgId: String = "",
+    private var rName:String="",
+    private var rPhoto:String=""
 ){
         // Getters
         fun getSender(): String {
             return sender
         }
 
+    fun getRName(): String {
+        return rName
+    }
+    fun getRPhoto(): String {
+        return rPhoto
+    }
         fun getReceiver(): String {
             return receiver
         }
@@ -57,4 +65,7 @@ class Chat (
         fun setMsgId(msgId: String) {
             this.msgId = msgId
         }
+    fun setRname(msgId: String) {
+        this.msgId = msgId
+    }
 }

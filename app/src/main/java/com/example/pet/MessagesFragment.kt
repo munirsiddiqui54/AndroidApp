@@ -1,5 +1,6 @@
 package com.example.pet
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.MainThread
 import android.util.Log
@@ -8,11 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.pet.Adapters.User2Adapter
 import com.example.pet.Adapters.UserAdapter
+import com.example.pet.ModelClasses.ChatItem
+import com.example.pet.ModelClasses.Community
 import com.example.pet.ModelClasses.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -38,7 +42,8 @@ class MessagesFragment : Fragment() {
 
     private var userAdapter:UserAdapter?=null
     private var userAdapter2:User2Adapter?=null
-    private var mUsers:List<User>?=null
+    private var mUsers:List<ChatItem>?=null
+    private var mCom:List<Community>?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,54 +61,76 @@ class MessagesFragment : Fragment() {
         val view:View= inflater.inflate(R.layout.fragment_messages, container, false)
 
         mUsers=ArrayList()
+        mCom=ArrayList()
 
         retriveAllUsers(view)
 
+        val showBtn=view.findViewById<CardView>(R.id.showCreate)
+        showBtn.setOnClickListener {
+            val intent=Intent(context,CreateCommunity::class.java)
+            startActivity(intent)
+        }
 
         return view
     }
 
     private fun retriveAllUsers(view:View) {
         var firebaseUserID=FirebaseAuth.getInstance().currentUser!!.uid
-        val refUsers= FirebaseDatabase.getInstance().reference.child("user")
+        val refUsers= FirebaseDatabase.getInstance().reference.child("ChatList").child(firebaseUserID)
          refUsers.addValueEventListener(object : ValueEventListener {
              override fun onDataChange(snapshot: DataSnapshot) {
-                 (mUsers as ArrayList<User>).clear()
-                 for(s in snapshot.children){
-                     val user:User?=s.getValue(User::class.java)
-                     if(!(user!!.getUid().equals(firebaseUserID))){
-                         (mUsers as ArrayList<User>).add(user)
-                     }
+                 (mUsers as ArrayList<ChatItem>).clear()
+                 for(x in snapshot.children){
+                     val user:ChatItem?=x.getValue(ChatItem::class.java)
+                     (mUsers as ArrayList<ChatItem>).add(user!!)
                  }
-//                 Log.d("Message",mUsers.toString())
-
+//                 Log.d("Message",mUser)
                  var recyclerView:RecyclerView=view.findViewById(R.id.recyclerView)
-                 var recyclerView2:RecyclerView=view.findViewById(R.id.recyclerViewTop)
-
 
                  val layoutManager= LinearLayoutManager(requireContext())
-                 val layoutManager2=LinearLayoutManager(requireContext())
 
                  layoutManager.orientation= LinearLayoutManager.VERTICAL
-                 layoutManager2.orientation=LinearLayoutManager.HORIZONTAL
 
                  recyclerView.layoutManager=layoutManager
-                 recyclerView2.layoutManager=layoutManager2
-
-
-
                  userAdapter= UserAdapter(requireContext(),mUsers!!,false)
-                 userAdapter2=User2Adapter(requireContext(),mUsers!!,false)
 
                  recyclerView.adapter=userAdapter
-                 Log.d("Message2",mUsers.toString())
-                 recyclerView2.adapter=userAdapter2
 
              }
 
              override fun onCancelled(error: DatabaseError) {
 //                 TODO("Not yet implemented")
              }
+        })
+
+        val ref= FirebaseDatabase.getInstance().reference.child("community")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                (mCom as ArrayList<Community>).clear()
+                for(s in snapshot.children){
+                    val user:Community?=s.getValue(Community::class.java)
+                    (mCom as ArrayList<Community>).add(user!!)
+                }
+//
+                var recyclerView2:RecyclerView=view.findViewById(R.id.recyclerViewTop)
+
+                val layoutManager2=LinearLayoutManager(requireContext())
+
+                layoutManager2.orientation=LinearLayoutManager.HORIZONTAL
+
+                recyclerView2.layoutManager=layoutManager2
+
+
+                userAdapter2=User2Adapter(requireContext(),mCom!!,false)
+
+                Log.d("Message2",mUsers.toString())
+                recyclerView2.adapter=userAdapter2
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+//                 TODO("Not yet implemented")
+            }
         })
 
     }

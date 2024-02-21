@@ -1,5 +1,6 @@
 package com.example.pet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.pet.ModelClasses.User
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -35,6 +37,14 @@ class MainActivity : AppCompatActivity() {
 //        refUsers=FirebaseDatabase.getInstance().reference.child("user").child(firebaseUser!!.uid)
 
 
+        val addpetBtn=findViewById<FloatingActionButton>(R.id.addpet)
+        addpetBtn.setOnClickListener{
+            val intent= Intent(this,AddPet::class.java)
+            startActivity(intent)
+        }
+
+
+
         val home=HomeFragment()
         val msg=MessagesFragment()
         val notification=NotificationFragment()
@@ -50,11 +60,12 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-//        Log.d("MainActivity", refUsers!!.toString())
 
 
 
-    }
+
+
+                }
 
     private fun makeCurrentFragment(fragment:Fragment){
         supportFragmentManager.beginTransaction().apply {

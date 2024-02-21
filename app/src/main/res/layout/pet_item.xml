@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_margin="4dp"
+    android:layout_height="wrap_content"
+    >
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/pet_view_image"-->
+<!--            android:src="@drawable/cat"-->
+<!--            android:background="@color/black"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="23sp"-->
+<!--            android:textFontWeight="500"-->
+<!--            android:textAlignment="center"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:layout_below="@+id/pet_view_image"-->
+<!--            android:id="@+id/pet_name"-->
+<!--            android:fontFamily="@font/roboto"-->
+<!--            android:text="Pet's name"/>-->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                        <!-- Media -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pet_view_image"
+                            android:scaleType="centerCrop"
+                            android:adjustViewBounds="true"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="2dp"
+                            >
+
+                                <!-- Title, secondary and supporting text -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pet_name"
+                                    android:text="hello"
+                                    android:textSize="17sp"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pet_description"
+                                    android:layout_marginTop="4dp"
+                                    android:text="DESCRIPTION"
+                                    android:textAppearance="?attr/textAppearanceBody2"
+                                    android:textColor="?android:attr/textColorSecondary"
+                                    />
+
+                        </LinearLayout>
+
+                        <!-- Buttons -->
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="100dp"
+                                    android:textSize="12sp"
+                                    android:layout_height="wrap_content"
+                                    android:text="SHOW MORE"
+                                    android:id="@+id/pet_button"
+                                    style="?attr/borderlessButtonStyle"
+                                    />
+
+
+                </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

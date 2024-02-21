@@ -12,6 +12,7 @@ import com.example.pet.ChatActivity
 import com.example.pet.ModelClasses.Chat
 import com.example.pet.ModelClasses.User
 import com.example.pet.R
+import com.example.pet.UserProfile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
@@ -28,13 +29,19 @@ class ChatAdapter(mContext: Context, mChats:ArrayList<Chat>)
     class ViewHolder(itemView: View, context: Context):RecyclerView.ViewHolder(itemView){
 
         var message: TextView
+        var rName:TextView
+        var rPhoto:ImageView
+        var id:String?=null
         init{
             message=itemView.findViewById(R.id.message)
-            itemView.setOnClickListener{
+            rName=itemView.findViewById(R.id.r_name)
+            rPhoto=itemView.findViewById(R.id.r_photo)
+            rPhoto.setOnClickListener{
+                val intent= Intent(context, UserProfile::class.java)
+                intent.putExtra("uid",id.toString())
+                context.startActivity(intent)
             }
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -54,11 +61,16 @@ class ChatAdapter(mContext: Context, mChats:ArrayList<Chat>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val chat:Chat =mChats[position]
         holder.message.text=chat!!.getMessage()
-//        Picasso.get().load(user.getProfile()).placeholder(R.drawable.myprofile).into(holder.userProfile)
+        holder.rName.text=chat!!.getRName()
+        holder.id=chat!!.getSender()
+        if (chat?.getRPhoto()!=""){
+                Picasso.get().load(chat!!.getRPhoto()).placeholder(R.drawable.myprofile).into(holder.rPhoto)
+            }
+
     }
 
     override fun getItemViewType(position: Int): Int {
-val firebaseUser=FirebaseAuth.getInstance().currentUser
+   val firebaseUser=FirebaseAuth.getInstance().currentUser
         return if(mChats[position].getSender()==firebaseUser!!.uid){
             1
         }else{

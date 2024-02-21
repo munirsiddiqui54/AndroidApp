@@ -84,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/loginbtn"
+            android:padding="15dp"
             android:text="LOGIN"
             app:cornerRadius="5dp"/>
 

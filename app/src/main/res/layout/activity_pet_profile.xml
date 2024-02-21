@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".PetProfileActivity"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:id="@+id/pets_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/img_6"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/pets_image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:orientation="vertical"
+            android:background="@color/white"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/pets_name"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/aclonica"
+                    android:textSize="35sp"
+                    android:text="Ginny"/>
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_height="45dp"
+                    android:id="@+id/pet_share"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/baseline_share_24"/>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:textColor="#373636"
+                android:text="Description:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pets_description"
+                android:textSize="15sp"
+                android:text="helosssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"/>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    >
+
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:background="@color/primary"
+                    android:layout_height="120dp"
+
+                    >
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:id="@+id/bd"
+                        android:layout_height="40dp"
+                        android:src="@drawable/img_2"
+                        android:layout_marginTop="5dp"
+                        android:layout_centerHorizontal="true"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/bd2"
+                        android:layout_height="wrap_content"
+                        android:text="Age"
+                        android:textColor="@color/white"
+                        android:layout_below="@+id/bd"
+                        android:layout_centerHorizontal="true"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:id="@+id/pets_age"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="2 years"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="18sp"/>
+                </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="90dp"
+                        android:background="#DD869F"
+                        android:layout_height="120dp"
+
+                        >
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:id="@+id/gen"
+                            android:layout_height="40dp"
+                            android:src="@drawable/img_4"
+                            android:layout_marginTop="5dp"
+                            android:layout_centerHorizontal="true"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gender"
+                            android:textColor="@color/white"
+                            android:layout_below="@+id/gen"
+                            android:layout_centerHorizontal="true"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="Female"
+                            android:id="@+id/pets_gender"
+                            android:layout_marginBottom="4dp"
+                            android:textSize="18sp"/>
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="90dp"
+                        android:background="@color/primary"
+                        android:layout_height="120dp"
+
+                        >
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:id="@+id/col"
+                            android:layout_height="40dp"
+                            android:src="@drawable/img_3"
+                            android:layout_marginTop="5dp"
+                            android:layout_centerHorizontal="true"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Color"
+                            android:textColor="@color/white"
+                            android:layout_below="@+id/col"
+                            android:layout_centerHorizontal="true"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="White"
+                            android:id="@+id/pets_color"
+                            android:layout_marginBottom="4dp"
+                            android:textSize="18sp"/>
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="90dp"
+                        android:background="#DD869F"
+                        android:layout_height="120dp"
+
+                        >
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:id="@+id/breed"
+                            android:layout_height="40dp"
+                            android:src="@drawable/img_5"
+                            android:layout_marginTop="5dp"
+                            android:layout_centerHorizontal="true"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Breed"
+                            android:textColor="@color/white"
+                            android:layout_below="@+id/breed"
+                            android:layout_centerHorizontal="true"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="Breed"
+                            android:id="@+id/pets_breed"
+                            android:layout_marginBottom="4dp"
+                            android:textSize="18sp"/>
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+    </HorizontalScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:textColor="#373636"
+                android:text="Health :"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:id="@+id/pets_medical"
+android:text=""/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pet_showOwner"
+                android:layout_marginTop="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="50dp"
+                    android:padding="5dp">
+                    <ImageView
+                        android:id="@+id/pets_owner_photo"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/myprofile"/>
+
+                </androidx.cardview.widget.CardView>
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_marginHorizontal="10dp"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:id="@+id/pets_owner_name"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:text="John Mandy"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="12sp"
+                       android:text="Owner"/>
+               </LinearLayout>
+
+            </LinearLayout>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="15sp"
+    android:id="@+id/pets_reason"
+    android:layout_marginTop="10dp"
+    android:text="helossssalkfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/contact"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="4dp"
+                    android:text="Contact Owner"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#5E5EF8"
+                    android:id="@+id/pet_request"
+                    android:textSize="11sp"
+                    android:text="Request Adoption"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

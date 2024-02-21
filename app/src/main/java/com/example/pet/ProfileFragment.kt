@@ -16,6 +16,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.squareup.picasso.Picasso;
 import com.example.pet.ModelClasses.User
 import com.google.android.gms.tasks.Continuation
@@ -61,23 +62,6 @@ class ProfileFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
 
 
-//            refUsers!!.addValueEventListener(object : ValueEventListener {
-//                override fun onDataChange(snapshot: DataSnapshot) {
-//                    if(snapshot.exists()){
-//                        val user: User?=snapshot.getValue(User::class.java)
-//                        val myusername=view?.findViewById<TextView>(R.id.myusername)
-////                        val myusername=findvie
-////                        Log.d("MainActivity", user!!.toString())
-////                        Toast.makeText(this@ProfileFragment, "done", Toast.LENGTH_SHORT).show()
-//                        myusername?.text=user!!.getUsername()
-//                    }
-//                }
-//
-//                override fun onCancelled(error: DatabaseError) {
-////                    Toast.makeText(this@ProfileFragment, "Some Thing Went WWWW", Toast.LENGTH_SHORT).show()
-//                }
-//            })
-
 
         }
     }
@@ -95,7 +79,8 @@ class ProfileFragment : Fragment() {
 
         val view:View= inflater.inflate(R.layout.fragment_profile, container, false)
         val myusername=view!!.findViewById<TextView>(R.id.myusername)
-        val myemail=view!!.findViewById<EditText>(R.id.myemail)
+        val myusername2=view!!.findViewById<TextView>(R.id.myusername2)
+        val myemail=view!!.findViewById<TextView>(R.id.myemail)
         val myprofile=view!!.findViewById<ImageView>(R.id.myprofile)
         val myaddress=view!!.findViewById<EditText>(R.id.myaddress)
         val myphone=view!!.findViewById<EditText>(R.id.myphone)
@@ -106,7 +91,7 @@ class ProfileFragment : Fragment() {
             progressBar.setMessage("Updating Profile...")
             progressBar.show()
             val map = HashMap<String, Any>()
-            map["email"] = myemail.text.toString()
+            map["username"] = myusername2.text.toString()
            map["phone"]=myphone.text.toString()
             map["address"]=myaddress.text.toString()
             refUsers!!.updateChildren(map).addOnCompleteListener{
@@ -114,13 +99,11 @@ class ProfileFragment : Fragment() {
                 Toast.makeText(context, "Profile Updated...", Toast.LENGTH_LONG)
                     .show()
             }
-
         }
 
 
-
         fun uploadPic(img:Uri?){
-        val progressBar= ProgressDialog(context)
+            val progressBar= ProgressDialog(context)
             progressBar.setMessage("Profile Pic is Uploading...")
             progressBar.show()
             if(img!==null){
@@ -174,6 +157,9 @@ class ProfileFragment : Fragment() {
             intent.action=Intent.ACTION_GET_CONTENT
             resultLauncher.launch(intent)
         }
+        view.findViewById<ImageView>(R.id.logoutBtn).setOnClickListener{
+            signOut()
+        }
 
         // Inflate the layout for this fragment
         refUsers?.addValueEventListener(object : ValueEventListener {
@@ -181,11 +167,14 @@ class ProfileFragment : Fragment() {
                 if(snapshot.exists()){
                     val user: User?=snapshot.getValue(User::class.java)
 
+                    myusername2!!.text=user!!.getUsername()
                     myusername!!.text=user!!.getUsername()
                     myemail!!.setText(user!!.getEmail())
                     myaddress!!.setText(user!!.getAddress())
                     myphone!!.setText(user!!.getPhone())
                     Picasso.get().load(user?.getProfile()).into(myprofile)
+
+
 
                 }
             }
@@ -196,6 +185,13 @@ class ProfileFragment : Fragment() {
         })
 
         return view
+    }
+    private fun signOut() {
+        val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth.signOut()
+
+            startActivity(Intent(requireContext(), login::class.java))
+            requireActivity().finish()
     }
 
     companion object {

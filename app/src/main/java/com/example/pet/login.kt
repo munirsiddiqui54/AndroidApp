@@ -22,34 +22,42 @@ class login : AppCompatActivity() {
     private var fbId:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
-        val btn=findViewById<Button>(R.id.signup)
-        val kitten=findViewById<View>(R.id.cat)
-        val head=findViewById<TextView>(R.id.heading)
-        val box=findViewById<LinearLayout>(R.id.box)
+        val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+        // Check if the user is already authenticated
+        if (firebaseAuth.currentUser != null) {
+            // User is already authenticated, start main activity
+            startActivity(Intent(this, MainActivity::class.java))
+            finish() // Finish the current activity so the user can't navigate back to it
+        } else {
+            // User is not authenticated, continue with login activity
+            setContentView(R.layout.activity_login)
+            // Add your login page setup code here
 
-        val loginbtn=findViewById<Button>(R.id.loginbtn)
 
-        val topanimate= AnimationUtils.loadAnimation(this,R.anim.bottom_animate)
-        box.animation=topanimate
-        head.animation=topanimate
+            val btn = findViewById<Button>(R.id.signup)
+            val kitten = findViewById<View>(R.id.cat)
+            val head = findViewById<TextView>(R.id.heading)
+            val box = findViewById<LinearLayout>(R.id.box)
 
-        myauth=FirebaseAuth.getInstance()
+            val loginbtn = findViewById<Button>(R.id.loginbtn)
 
-        btn.setOnClickListener{
-            val pairs: Array<Pair<View, String>?> = arrayOfNulls(1)
+            val topanimate = AnimationUtils.loadAnimation(this, R.anim.bottom_animate)
+            box.animation = topanimate
+            head.animation = topanimate
 
-            pairs[0]= Pair<View,String>(kitten,"kitten")
+            myauth = FirebaseAuth.getInstance()
 
-            var op: ActivityOptions?=null
-            op= ActivityOptions.makeSceneTransitionAnimation(this,*pairs)
-
-            startActivity(Intent(this,Register::class.java),op.toBundle())
-        }
-
-        loginbtn.setOnClickListener{
-            loginUser()
+            btn.setOnClickListener {
+                val pairs: Array<Pair<View, String>?> = arrayOfNulls(1)
+                pairs[0] = Pair<View, String>(kitten, "kitten")
+                var op: ActivityOptions? = null
+                op = ActivityOptions.makeSceneTransitionAnimation(this, *pairs)
+                startActivity(Intent(this, Register::class.java), op.toBundle())
+            }
+            loginbtn.setOnClickListener {
+                loginUser()
+            }
         }
 
     }
@@ -77,31 +85,6 @@ class login : AppCompatActivity() {
                     Toast.makeText(this,task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
-//            myauth.createUserWithEmailAndPassword(email,password).addOnCompleteListener{task->
-//                if(task.isSuccessful){
-//                    fbId=myauth.currentUser!!.uid
-//                    refusers= FirebaseDatabase.getInstance().reference.child("user").child(fbId)
-//                    val userHashMap=HashMap<String,Any>()
-//                    userHashMap["uid"]=fbId
-//                    userHashMap["username"]=username
-//                    userHashMap["profile"]="https://firebasestorage.googleapis.com/v0/b/petcompass-b0db5.appspot.com/o/profile.jpg?alt=media&token=41d6457e-a34f-4dcf-9a3a-da795656c554"
-//
-//                    refusers.updateChildren(userHashMap).addOnCompleteListener{
-//                            task->
-//                        if(task.isSuccessful){
-//                            val intent=Intent(this,MainActivity::class.java)
-//                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-//                            Toast.makeText(this,"User Registered", Toast.LENGTH_SHORT).show()
-//                            startActivity(intent)
-//                            finish()
-//                        }
-//                    }
-//
-//
-//                }else{
-//                    Toast.makeText(this,"Something went wrong", Toast.LENGTH_SHORT).show()
-//                }
-//            }
 
         }
 

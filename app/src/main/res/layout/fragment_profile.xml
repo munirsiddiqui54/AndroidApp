@@ -5,10 +5,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -18,6 +20,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="17dp"
+        app:cardCornerRadius="50dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:id="@+id/logoutBtn"
+            android:layout_height="50dp"
+            android:padding="7dp"
+            android:src="@drawable/baseline_logout_24"
+
+            />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
@@ -61,20 +84,29 @@
             android:textAlignment="center"
             android:fontFamily="@font/aclonica"
             android:text="Username" />
+        <TextView
+            android:id="@+id/myemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto"
+            android:layout_marginBottom="10dp"
+            android:text="email@gmail.com" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email: "
+            android:text="Username: "
             android:layout_margin="5dp"
             android:textSize="13sp"/>
         <EditText
-            android:id="@+id/myemail"
+            android:id="@+id/myusername2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_edit_text"
-            android:hint="Update Email..."
+            android:hint="Update Username..."
             android:padding="10dp"
             android:layout_marginBottom="10dp"
             />

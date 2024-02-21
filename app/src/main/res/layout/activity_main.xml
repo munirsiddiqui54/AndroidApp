@@ -44,6 +44,7 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
+        android:id="@+id/addpet"
         android:layout_height="wrap_content"
         android:src="@drawable/add"
         android:backgroundTint="#f08080"
