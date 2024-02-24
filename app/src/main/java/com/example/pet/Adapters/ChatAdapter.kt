@@ -70,7 +70,7 @@ class ChatAdapter(mContext: Context, mChats:ArrayList<Chat>)
     }
 
     override fun getItemViewType(position: Int): Int {
-   val firebaseUser=FirebaseAuth.getInstance().currentUser
+         val firebaseUser=FirebaseAuth.getInstance().currentUser
         return if(mChats[position].getSender()==firebaseUser!!.uid){
             1
         }else{

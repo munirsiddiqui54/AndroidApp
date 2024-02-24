@@ -44,7 +44,6 @@ class PetProfileActivity : AppCompatActivity() {
             }
         })
 
-
         val profile:ImageView=findViewById(R.id.pets_image)
         val name:TextView=findViewById(R.id.pets_name)
         val age:TextView=findViewById(R.id.pets_age)
@@ -59,7 +58,6 @@ class PetProfileActivity : AppCompatActivity() {
         val gender:TextView=findViewById(R.id.pets_gender)
 
         var prof:String?=null
-
 
         name.text=pet?.getName()
         age.text=pet?.getAge()
@@ -118,9 +116,7 @@ class PetProfileActivity : AppCompatActivity() {
             intent.putExtra("uid",pet!!.getOwner().toString())
             startActivity(intent)
         }
-
         val x=this
-
         ref.child(pet.getOwner()).addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {

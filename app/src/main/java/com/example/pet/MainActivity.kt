@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
 //    var refUsers:DatabaseReference?=null
 //    var firebaseUser:FirebaseUser?=null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         val navbar=findViewById<BottomNavigationView>(R.id.btmnav)
         navbar.background=null
         navbar.menu.getItem(2).isEnabled=false
+    navbar.selectedItemId=R.id.profile
 
 //        firebaseUser=FirebaseAuth.getInstance().currentUser
 //        refUsers=FirebaseDatabase.getInstance().reference.child("user").child(firebaseUser!!.uid)
@@ -44,12 +44,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
         val home=HomeFragment()
         val msg=MessagesFragment()
         val notification=NotificationFragment()
         val profile=ProfileFragment()
-        makeCurrentFragment(home)
+        makeCurrentFragment(profile)
 
         navbar.setOnItemSelectedListener{
             when(it.itemId){

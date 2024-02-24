@@ -26,9 +26,9 @@ class login : AppCompatActivity() {
         val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
         // Check if the user is already authenticated
         if (firebaseAuth.currentUser != null) {
-            // User is already authenticated, start main activity
+
             startActivity(Intent(this, MainActivity::class.java))
-            finish() // Finish the current activity so the user can't navigate back to it
+            finish()
         } else {
             // User is not authenticated, continue with login activity
             setContentView(R.layout.activity_login)
@@ -76,6 +76,7 @@ class login : AppCompatActivity() {
             myauth.signInWithEmailAndPassword(email,password).addOnCompleteListener{
                 task->
                 if(task.isSuccessful){
+
                     val intent=Intent(this,MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                     Toast.makeText(this,"Welcome", Toast.LENGTH_SHORT).show()
